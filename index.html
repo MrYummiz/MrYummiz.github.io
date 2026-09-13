@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MrYummi Mods</title>
+<meta name="description" content="MrYummi — deep game mods, built properly. Downloads, Discord, videos.">
+<meta property="og:title" content="MrYummi Mods">
+<meta property="og:description" content="Deep game mods, built properly. Downloads, Discord, videos.">
+<meta property="og:image" content="freakspawner.jpg">
+<meta name="theme-color" content="#060d05">
+<link rel="icon" href="avatar.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #7cf03a;
+    --green-dim: rgba(124, 240, 58, .45);
+    --ink: #0c1608;
+    --bone: #ecffe0;
+    --soft: #aee196;
+    --panel: rgba(10, 24, 8, .78);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    font-family: Inter, "Segoe UI", system-ui, sans-serif;
+    color: var(--bone);
+    background:
+      radial-gradient(900px 520px at 50% -80px, rgba(124, 240, 58, .20), transparent 70%),
+      radial-gradient(700px 700px at 50% 120%, rgba(124, 240, 58, .08), transparent 70%),
+      #060d05;
+  }
+  .stripes {
+    height: 14px;
+    background: repeating-linear-gradient(-45deg, rgba(124, 240, 58, .35) 0 14px, transparent 14px 28px);
+  }
+  main {
+    max-width: 470px;
+    margin: 0 auto;
+    padding: 36px 20px 28px;
+    text-align: center;
+  }
+  .avatar {
+    width: 112px; height: 112px;
+    border-radius: 50%;
+    border: 4px solid var(--green);
+    box-shadow: 0 0 34px rgba(124, 240, 58, .55);
+    display: block; margin: 0 auto 16px;
+  }
+  h1 {
+    font-family: Anton, Impact, "Arial Narrow", sans-serif;
+    font-weight: 400;
+    font-size: 46px;
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1.05;
+    text-shadow: 0 0 22px rgba(124, 240, 58, .6);
+  }
+  .tagline { margin: 6px 0 26px; color: var(--soft); font-weight: 600; font-size: 15px; }
+
+  .feature {
+    display: block; text-decoration: none; color: inherit;
+    border: 2px solid var(--green); border-radius: 16px; overflow: hidden;
+    background: var(--panel);
+    box-shadow: 0 0 26px rgba(124, 240, 58, .22);
+    margin-bottom: 18px;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .feature img { display: block; width: 100%; height: auto; }
+  .feature .cap {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 12px 16px; text-align: left;
+  }
+  .badge {
+    font-size: 12px; font-weight: 700; color: var(--ink); background: var(--green);
+    border-radius: 999px; padding: 3px 10px; margin-right: 8px;
+  }
+  .feature strong { font-size: 16px; }
+  .feature small { display: block; color: var(--soft); margin-top: 3px; font-size: 13px; }
+
+  .links { display: grid; gap: 12px; }
+  .btn {
+    display: flex; align-items: center; gap: 14px;
+    min-height: 62px; padding: 0 18px;
+    border: 2px solid var(--green-dim); border-radius: 14px;
+    background: var(--panel);
+    color: var(--bone); text-decoration: none; font-weight: 700; font-size: 16px;
+    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  .btn svg { width: 26px; height: 26px; flex: none; fill: var(--green); }
+  .btn span { flex: 1; text-align: left; }
+  .btn .arrow { color: var(--green); font-size: 20px; flex: none; }
+  .btn.primary { background: var(--green); color: var(--ink); border-color: var(--green); }
+  .btn.primary svg { fill: var(--ink); }
+  .btn.primary .arrow { color: var(--ink); }
+  .btn:hover, .feature:hover { transform: translateY(-2px); border-color: var(--green); box-shadow: 0 0 24px rgba(124, 240, 58, .35); }
+  .btn:focus-visible, .feature:focus-visible { outline: 3px solid var(--bone); outline-offset: 3px; }
+  .btn.todo { opacity: .45; pointer-events: none; }
+
+  footer { margin-top: 30px; color: rgba(236, 255, 224, .45); font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="stripes"></div>
+<main>
+  <img class="avatar" src="avatar.png" alt="MrYummi logo">
+  <h1>MRYUMMI MODS</h1>
+  <p class="tagline">deep game mods, built properly</p>
+
+  <a class="feature" href="https://www.nexusmods.com/stateofdecay2/mods/1637" target="_blank" rel="noopener">
+    <img src="freakspawner.jpg" alt="Freak Spawner menu in State of Decay 2" width="960" height="540">
+    <div class="cap">
+      <div>
+        <strong><span class="badge">NEW</span>Freak Spawner v1.1</strong>
+        <small>State of Decay 2 · free download</small>
+      </div>
+      <span class="arrow" aria-hidden="true">→</span>
+    </div>
+  </a>
+
+  <nav class="links">
+    <a class="btn primary" href="https://discord.gg/pp6XJp5Bug" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-6.6l-4.2 3.4A.75.75 0 0 1 8 20.8V18H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm4.5 5.2a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Zm7 0a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>
+      <span>Join the Discord</span><span class="arrow" aria-hidden="true">→</span>
+    </a>
+    <a class="btn" href="https://www.nexusmods.com/stateofdecay2/mods/1637" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3h2v9.6l3.3-3.3 1.4 1.4L12 16.4l-5.7-5.7 1.4-1.4L11 12.6V3ZM4 18h16v3H4v-3Z"/></svg>
+      <span>Download Freak Spawner (Nexus)</span><span class="arrow" aria-hidden="true">→</span>
+    </a>
+    <!-- TODO: paste the real YouTube channel link, then remove class "todo" -->
+    <a class="btn todo" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg>
+      <span>YouTube</span><span class="arrow" aria-hidden="true">→</span>
+    </a>
+    <!-- TODO: paste the real TikTok profile link, then remove class "todo" -->
+    <a class="btn todo" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h3a4.5 4.5 0 0 0 4 4v3a7.4 7.4 0 0 1-4-1.3V15a6 6 0 1 1-6-6h.5v3.1H11a2.9 2.9 0 1 0 3 2.9V3Z"/></svg>
+      <span>TikTok</span><span class="arrow" aria-hidden="true">→</span>
+    </a>
+    <!-- TODO: paste the real Patreon link, then remove class "todo" -->
+    <a class="btn todo" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13ZM3 3h3.5v18H3V3Z"/></svg>
+      <span>Patreon · early access</span><span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </nav>
+
+  <footer>© MrYummi · mods are free, always</footer>
+</main>
+</body>
+</html>
