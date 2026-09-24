@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="MrYummi builds game mods, FiveM scripts and Discord bots. Real work, real screenshots, and how to hire me.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MrYummi — mods, FiveM scripts, Discord bots">
+<meta property="og:description" content="Four mods live on Nexus, a Discord bot that builds whole servers, a FiveM admin menu. Hire me on Fiverr.">
+<meta property="og:image" content="https://mryummiz.github.io/work/img/og.jpg">
+<meta property="og:url" content="https://mryummiz.github.io/work/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#152033">
+<link rel="icon" href="../avatar.png">
+</head>
+<body>
+<title>MrYummi's Workbench</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Big+Shoulders+Display:wght@700;800;900&family=DM+Mono:wght@400;500&family=Permanent+Marker&display=swap">
+<style>
+  /* Light = engineering pad, dark = blueprint. Same bench, two lights. */
+  :root {
+    color-scheme: light;
+    --paper: #edf1f5;
+    --grid: rgba(76, 108, 150, 0.09);
+    --grid-major: rgba(76, 108, 150, 0.17);
+    --ink: #152033;
+    --ink-2: #4a5a73;
+    --rule: #c3cedb;
+    --sheet: #fbfcfd;
+    --print: #ffffff;
+    --print-ink: #3f4a5c;
+    --tape: rgba(242, 168, 58, 0.74);
+    --accent: #f2a83a;
+    --accent-ink: #a3500c;
+    --on-accent: #1a1206;
+    --hl: rgba(242, 168, 58, 0.42);
+    --shadow: 0 1px 1px rgba(21, 32, 51, 0.08), 0 14px 28px -12px rgba(21, 32, 51, 0.38);
+    --discord: #313338;
+
+    --display: "Big Shoulders Display", "Bahnschrift", "Arial Narrow", sans-serif;
+    --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+    --mono: "DM Mono", "Cascadia Mono", Consolas, monospace;
+    --marker: "Permanent Marker", "Segoe Print", "Comic Sans MS", cursive;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #0e1a2b;
+      --grid: rgba(120, 170, 230, 0.07);
+      --grid-major: rgba(120, 170, 230, 0.13);
+      --ink: #e7eef8;
+      --ink-2: #a3b6cf;
+      --rule: #253a57;
+      --sheet: #13233a;
+      --print: #e3e9f1;
+      --print-ink: #34404f;
+      --tape: rgba(242, 168, 58, 0.7);
+      --accent-ink: #f6b85c;
+      --hl: rgba(242, 168, 58, 0.3);
+      --shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 16px 30px -12px rgba(0, 0, 0, 0.7);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #0e1a2b;
+    --grid: rgba(120, 170, 230, 0.07);
+    --grid-major: rgba(120, 170, 230, 0.13);
+    --ink: #e7eef8;
+    --ink-2: #a3b6cf;
+    --rule: #253a57;
+    --sheet: #13233a;
+    --print: #e3e9f1;
+    --print-ink: #34404f;
+    --tape: rgba(242, 168, 58, 0.7);
+    --accent-ink: #f6b85c;
+    --hl: rgba(242, 168, 58, 0.3);
+    --shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 16px 30px -12px rgba(0, 0, 0, 0.7);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding-inline: 20px;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(var(--grid-major) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+    font: 400 1.0625rem/1.6 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1120px; margin-inline: auto; }
+
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+  h1, h2, h3 {
+    font-family: var(--display);
+    text-transform: uppercase;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  /* ------------------------------------------------------------------ top bar */
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 22px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .brand {
+    font: 900 1.9rem/1 var(--display);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .brand span { color: var(--accent-ink); }
+  .top nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+  .top nav a {
+    font: 500 0.82rem var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-2);
+  }
+  .top nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+
+  /* ------------------------------------------------------------------ hero */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 48px 56px;
+    padding-block: 56px 80px;
+  }
+  .eyebrow, .meta, .label {
+    font: 500 0.78rem/1.4 var(--mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  h1 {
+    font-weight: 900;
+    font-size: clamp(2.9rem, 6.2vw, 5.4rem);
+    line-height: 0.92;
+    letter-spacing: 0.005em;
+    margin-block: 14px 22px;
+  }
+  h1 .mark {
+    background: linear-gradient(transparent 58%, var(--hl) 58%, var(--hl) 90%, transparent 90%);
+    padding-inline: 0.06em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .lede { max-width: 56ch; margin: 0 0 30px; color: var(--ink); }
+  .lede strong { font-weight: 700; }
+
+  .cta { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    padding: 0.78em 1.25em;
+    font: 700 1rem/1 var(--body);
+    color: var(--ink);
+    background: var(--sheet);
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    box-shadow: 3px 3px 0 var(--ink);
+    text-decoration: none;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+  .btn.primary { background: var(--accent); color: var(--on-accent); }
+
+  /* ------------------------------------------------------------------ taped prints */
+  .print {
+    --tilt: -1deg;
+    position: relative;
+    margin: 0;
+    padding: 10px 10px 12px;
+    background: var(--print);
+    box-shadow: var(--shadow);
+    transform: rotate(var(--tilt));
+    transition: transform 0.25s ease;
+    animation: settle 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.2) backwards;
+  }
+  .print:hover { transform: rotate(0deg) scale(1.012); }
+  .print::before, .print::after {
+    content: "";
+    position: absolute;
+    top: -13px;
+    width: 88px;
+    height: 26px;
+    background: var(--tape);
+    clip-path: polygon(3% 0, 97% 0, 100% 22%, 97% 44%, 100% 66%, 97% 88%, 99% 100%, 2% 100%, 0 80%, 3% 58%, 0 36%, 3% 16%);
+  }
+  .print::before { left: 14px; transform: rotate(-7deg); }
+  .print::after { right: 14px; transform: rotate(6deg); }
+  .print img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #0b0e13;
+  }
+  .print figcaption {
+    font: 400 0.76rem/1.35 var(--mono);
+    color: var(--print-ink);
+    padding-top: 9px;
+  }
+  @keyframes settle {
+    from { transform: translateY(-10px) rotate(calc(var(--tilt) * 3)); }
+    to { transform: rotate(var(--tilt)); }
+  }
+
+  .pile { position: relative; aspect-ratio: 1.08; }
+  .pile .print { position: absolute; }
+  .pile .p1 { --tilt: -3.5deg; width: 74%; left: 0; top: 7%; z-index: 1; animation-delay: 0.05s; }
+  .pile .p2 { --tilt: 3deg; width: 60%; right: 0; top: 0; z-index: 2; animation-delay: 0.18s; }
+  .pile .p3 { --tilt: 1.4deg; width: 64%; left: 15%; bottom: 3%; z-index: 3; animation-delay: 0.3s; }
+
+  .note {
+    position: absolute;
+    z-index: 4;
+    margin: 0;
+    font: 400 1.3rem/1.05 var(--marker);
+    color: var(--accent-ink);
+    transform: rotate(-6deg);
+  }
+  .note svg { display: block; }
+  .pile .note { right: 0; bottom: -2%; text-align: right; }
+  .pile .note svg { margin: 0 0 4px auto; transform: scaleX(-1); }
+
+  /* ------------------------------------------------------------------ sections */
+  .section { padding-block: 72px; border-top: 2px solid var(--ink); }
+  .section-head { display: grid; gap: 10px; margin-bottom: 20px; }
+  h2 {
+    font-weight: 900;
+    font-size: clamp(2.3rem, 4.4vw, 3.4rem);
+    line-height: 0.95;
+  }
+  h2 span {
+    background: linear-gradient(transparent 60%, var(--hl) 60%, var(--hl) 92%, transparent 92%);
+    padding-inline: 0.06em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .section-head p { margin: 0; max-width: 60ch; color: var(--ink-2); }
+
+  /* ------------------------------------------------------------------ projects */
+  .project {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 36px 60px;
+    padding-block: 44px;
+    border-top: 1px dashed var(--rule);
+  }
+  .project:first-of-type { border-top: 0; }
+  .project:nth-of-type(odd) .print { --tilt: -1.2deg; }
+  .project:nth-of-type(even) .print { --tilt: 1.1deg; order: 2; }
+  .project-text { display: grid; gap: 12px; justify-items: start; }
+  .project h3 { font-weight: 800; font-size: clamp(2rem, 3.2vw, 2.6rem); line-height: 0.95; }
+  .project p { margin: 0; max-width: 52ch; }
+  .keys {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 8px;
+    font: 500 0.78rem var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  kbd {
+    display: inline-block;
+    min-width: 2.2em;
+    padding: 0.28em 0.6em 0.22em;
+    font: 500 0.92rem/1 var(--mono);
+    letter-spacing: 0;
+    text-transform: none;
+    text-align: center;
+    color: var(--ink);
+    background: var(--sheet);
+    border: 1px solid var(--ink-2);
+    border-bottom-width: 3px;
+    border-radius: 6px;
+  }
+  .keys .plus { color: var(--ink-2); }
+  .keys .none { text-transform: none; letter-spacing: 0; font-family: var(--body); font-size: 0.95rem; }
+  .link {
+    font-weight: 700;
+    color: var(--accent-ink);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+  .link:hover { text-decoration-thickness: 3px; }
+
+  /* the bot's card sits on Discord's own dark grey, the way it looks in a channel */
+  .print.on-discord img {
+    object-fit: contain;
+    background: var(--discord);
+    padding: 7%;
+  }
+
+  /* ------------------------------------------------------------------ hire */
+  .orders {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    margin-top: 12px;
+  }
+  .order {
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: 14px;
+    padding: 28px 28px 30px;
+    background: var(--sheet);
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+  }
+  .order header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 14px;
+    border-bottom: 2px dashed var(--rule);
+  }
+  .order h3 { font-weight: 800; font-size: 1.9rem; line-height: 1; }
+  .price {
+    flex: none;
+    margin: 0;
+    font: 400 1.15rem/1 var(--marker);
+    color: var(--accent-ink);
+    border: 2px solid currentColor;
+    border-radius: 4px;
+    padding: 0.35em 0.5em 0.3em;
+    transform: rotate(4deg);
+  }
+  .order ul { margin: 0; padding-left: 1.15em; display: grid; gap: 6px; }
+  .order li::marker { color: var(--accent-ink); }
+  .order .btn { justify-self: start; margin-top: 6px; }
+  .safe {
+    margin: 22px 0 0;
+    font: 400 1.15rem/1.2 var(--marker);
+    color: var(--accent-ink);
+    transform: rotate(-1.5deg);
+    transform-origin: left;
+  }
+
+  /* ------------------------------------------------------------------ steps (a real order of events) */
+  .steps {
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    counter-reset: step;
+  }
+  .steps li { counter-increment: step; display: grid; gap: 8px; align-content: start; }
+  .steps li::before {
+    content: counter(step);
+    font: 900 3.4rem/0.9 var(--display);
+    color: var(--accent-ink);
+  }
+  .steps b { display: block; font-size: 1.05rem; }
+  .steps span { color: var(--ink-2); }
+
+  /* ------------------------------------------------------------------ footer */
+  footer { padding-block: 64px 48px; border-top: 2px solid var(--ink); }
+  .links {
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px 24px;
+  }
+  .links a {
+    display: grid;
+    gap: 2px;
+    padding: 14px 16px;
+    text-decoration: none;
+    background: var(--sheet);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+  }
+  .links a:hover { border-color: var(--ink); }
+  .links b { font-size: 1.05rem; }
+  .links span { font: 400 0.8rem var(--mono); color: var(--ink-2); overflow-wrap: anywhere; }
+  .fine { margin: 36px 0 0; font: 400 0.8rem var(--mono); color: var(--ink-2); }
+
+  /* ------------------------------------------------------------------ narrow screens */
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: minmax(0, 1fr); padding-block: 36px 64px; }
+    .pile { max-width: 560px; width: 100%; justify-self: center; }
+    .project { grid-template-columns: minmax(0, 1fr); gap: 26px; padding-block: 36px; }
+    .project:nth-of-type(even) .print { order: 0; }
+    .orders { grid-template-columns: minmax(0, 1fr); }
+    .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 480px) {
+    .top { flex-direction: column; align-items: flex-start; }
+    .steps { grid-template-columns: minmax(0, 1fr); }
+    .note { font-size: 1.1rem; }
+    .order { padding: 22px 20px 24px; }
+    .order header { flex-direction: column; align-items: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .print { animation: none; transition: none; }
+    .print:hover { transform: rotate(var(--tilt)); }
+    .btn { transition: none; }
+  }
+</style>
+
+<header class="top wrap">
+  <a class="brand" href="#top">MR<span>YUMMI</span></a>
+  <nav aria-label="Sections">
+    <a href="#work">The work</a>
+    <a href="#hire">Hire me</a>
+    <a href="#find">Find me</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap" id="top">
+    <div>
+      <p class="eyebrow">Game mods &middot; FiveM scripts &middot; Discord bots</p>
+      <h1>I make games do things they <span class="mark">weren't built to do.</span></h1>
+      <p class="lede">I'm MrYummi. I have <strong>four mods live on Nexus</strong>, a Discord bot that builds a whole server from one command, and an admin menu for FiveM servers. Everything on this page is real and running. If you want something like it, I can build it for you.</p>
+      <div class="cta">
+        <a class="btn primary" href="#hire">Hire me</a>
+        <a class="btn" href="#work">See the work</a>
+      </div>
+    </div>
+
+    <div class="pile">
+      <figure class="print p1">
+        <img src="img/frozen.jpg" width="1200" height="675" alt="State of Decay 2 frozen mid-moment by Photo Mode: a zombie with glowing eyes caught mid-lunge">
+      </figure>
+      <figure class="print p2">
+        <img src="img/adminmenu.jpg" width="920" height="502" alt="The MrYummi Admin menu for FiveM, open on the players tab">
+      </figure>
+      <figure class="print p3">
+        <img src="img/freakspawner.jpg" width="1200" height="675" alt="Freak Spawner's in-game menu open during a fight with a Blood Screamer">
+      </figure>
+      <p class="note">
+        <svg width="58" height="36" viewBox="0 0 58 36" aria-hidden="true"><path d="M54 32 C40 30 20 22 8 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M8 6 L9 19 M8 6 L20 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+        real screenshots,<br>no mock-ups
+      </p>
+    </div>
+  </section>
+
+  <section class="section wrap" id="work">
+    <div class="section-head">
+      <h2><span>The work</span></h2>
+      <p>Mods first, then the tools I build for servers. Each one shows the key that opens it.</p>
+    </div>
+
+    <article class="project">
+      <figure class="print">
+        <img src="img/freakspawner.jpg" width="1200" height="675" loading="lazy" alt="A survivor fighting a Blood Screamer with the Freak Spawner menu open on the right">
+        <figcaption>Blood Screamer, spawned from the menu on the right</figcaption>
+      </figure>
+      <div class="project-text">
+        <p class="meta">State of Decay 2 &middot; live on Nexus</p>
+        <h3>Freak Spawner</h3>
+        <p>A menu inside the game that spawns any freak zombie right where you stand: screamers, bloaters, juggernauts, and the blood plague versions too. Arrow keys to pick, Enter to spawn.</p>
+        <p class="keys">Opens with <kbd>Home</kbd></p>
+        <a class="link" href="https://www.nexusmods.com/stateofdecay2/mods/1637" target="_blank" rel="noopener">See it on Nexus &#8599;</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <figure class="print">
+        <img src="img/photomode.jpg" width="1200" height="675" loading="lazy" alt="Photo Mode's settings menu over a frozen scene with an ambulance, with the on-screen controls along the bottom">
+        <figcaption>The settings menu, with the world frozen behind it</figcaption>
+      </figure>
+      <div class="project-text">
+        <p class="meta">State of Decay 2 &middot; live on Nexus</p>
+        <h3>Photo Mode</h3>
+        <p>Press one key and the whole world freezes mid-moment. Fly a free camera anywhere, then set focus, film grain and time of day from a menu I built into the game.</p>
+        <p class="keys">Opens with <kbd>F4</kbd></p>
+        <a class="link" href="https://www.nexusmods.com/stateofdecay2/mods/1644" target="_blank" rel="noopener">See it on Nexus &#8599;</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <figure class="print">
+        <img src="img/firstperson.jpg" width="1200" height="675" loading="lazy" alt="Driving a car in State of Decay 2 from a first-person view, hands on the wheel">
+        <figcaption>Driving in first person</figcaption>
+      </figure>
+      <div class="project-text">
+        <p class="meta">State of Decay 2 &middot; live on Nexus</p>
+        <h3>First Person Mode</h3>
+        <p>The game only ships with a third-person camera. This adds a real first-person one that works on foot, while aiming, and behind the wheel.</p>
+        <p class="keys">Switch with <kbd>Shift</kbd><span class="plus">+</span><kbd>F3</kbd></p>
+        <a class="link" href="https://www.nexusmods.com/stateofdecay2/mods/1642" target="_blank" rel="noopener">See it on Nexus &#8599;</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <figure class="print">
+        <img src="img/plague.jpg" width="1200" height="675" loading="lazy" alt="Hand-drawn style page art: plague hearts don't own the map, with before and after outpost panels">
+        <figcaption>The Nexus page art for it. I make those too.</figcaption>
+      </figure>
+      <div class="project-text">
+        <p class="meta">State of Decay 2 &middot; live on Nexus</p>
+        <h3>No Plague Heart Territory</h3>
+        <p>Plague hearts normally claim a big chunk of the map around them. This stops that, so you can take outposts and move your base next to them again.</p>
+        <p class="keys"><span class="none">No key needed. Install it and play.</span></p>
+        <a class="link" href="https://www.nexusmods.com/stateofdecay2/mods/1648" target="_blank" rel="noopener">See it on Nexus &#8599;</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <figure class="print on-discord">
+        <img src="img/welcome.png" width="1000" height="340" loading="lazy" alt="A welcome card drawn by the bot: the new member's avatar, 'Welcome, Jordan, member number 128'">
+        <figcaption>A real welcome card, drawn by the bot for a new member</figcaption>
+      </figure>
+      <div class="project-text">
+        <p class="meta">Discord &middot; runs my own server</p>
+        <h3>Server Worker, a Discord bot</h3>
+        <p>One command builds a whole server: channels, roles and permissions. It also does welcome cards with the member's own avatar, support tickets that save a transcript when they close, moderation with logs, and giveaways that survive a restart. Twenty slash commands in all.</p>
+        <p class="keys">Starts with <kbd>/setup</kbd></p>
+        <a class="link" href="https://www.fiverr.com/shamezjohnson/build-a-custom-discord-bot-and-set-up-your-server" target="_blank" rel="noopener">Get one for your server &#8599;</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <figure class="print">
+        <img src="img/adminmenu.jpg" width="920" height="502" loading="lazy" alt="The MrYummi Admin menu, players tab: each player has go to, bring, heal, freeze, unfreeze and kick buttons">
+        <figcaption>The players tab (sample player names)</figcaption>
+      </figure>
+      <div class="project-text">
+        <p class="meta">FiveM &middot; Lua + NUI</p>
+        <h3>MrYummi Admin</h3>
+        <p>A staff menu for FiveM servers. A player list with go to, bring, heal, freeze and kick, plus a vehicle spawner, time and weather, server announcements and noclip. The server checks every request against staff permissions and logs each action.</p>
+        <p class="keys">Opens with <kbd>F2</kbd></p>
+        <a class="link" href="https://www.fiverr.com/shamezjohnson/code-custom-fivem-scripts-game-mods-and-tools" target="_blank" rel="noopener">Get a script built &#8599;</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="section wrap" id="hire">
+    <div class="section-head">
+      <h2><span>Want one of your own?</span></h2>
+      <p>I take work through Fiverr. Pick whichever fits, or message me there first if you're not sure.</p>
+    </div>
+
+    <div class="orders">
+      <article class="order">
+        <header>
+          <div>
+            <p class="label">Fiverr gig</p>
+            <h3>Discord bot + server setup</h3>
+          </div>
+          <p class="price">from $25</p>
+        </header>
+        <ul>
+          <li>Your own bot, in your colours, with your name on it</li>
+          <li>Channels, roles and permissions set up properly</li>
+          <li>Most servers finished the same day</li>
+        </ul>
+        <a class="btn primary" href="https://www.fiverr.com/shamezjohnson/build-a-custom-discord-bot-and-set-up-your-server" target="_blank" rel="noopener">Order on Fiverr &#8599;</a>
+      </article>
+
+      <article class="order">
+        <header>
+          <div>
+            <p class="label">Fiverr gig</p>
+            <h3>FiveM scripts, game mods and tools</h3>
+          </div>
+          <p class="price">from $25</p>
+        </header>
+        <ul>
+          <li>Written from scratch for you, no leaked scripts</li>
+          <li>Standalone, ESX or QBCore</li>
+          <li>Full source code included</li>
+        </ul>
+        <a class="btn primary" href="https://www.fiverr.com/shamezjohnson/code-custom-fivem-scripts-game-mods-and-tools" target="_blank" rel="noopener">Order on Fiverr &#8599;</a>
+      </article>
+    </div>
+
+    <p class="safe">You pay through Fiverr, and they hold the money until the order's done.</p>
+  </section>
+
+  <section class="section wrap" id="how">
+    <div class="section-head">
+      <h2><span>How a job goes</span></h2>
+    </div>
+    <ol class="steps">
+      <li><b>You message me</b><span>Say what you want on Fiverr. Screenshots or a video help a lot.</span></li>
+      <li><b>I tell you straight</b><span>What you'll get, how long it takes and what it costs, before you pay.</span></li>
+      <li><b>I build it and test it</b><span>I use it myself before you ever see it.</span></li>
+      <li><b>You get it working</b><span>With setup steps. Changes are included.</span></li>
+    </ol>
+  </section>
+</main>
+
+<footer class="wrap" id="find">
+  <h2><span>Find me</span></h2>
+  <ul class="links">
+    <li><a href="https://www.youtube.com/@MrYummiMods" target="_blank" rel="noopener"><b>YouTube</b><span>@MrYummiMods</span></a></li>
+    <li><a href="https://www.tiktok.com/@mr.yummiz" target="_blank" rel="noopener"><b>TikTok</b><span>@mr.yummiz</span></a></li>
+    <li><a href="https://discord.gg/pp6XJp5Bug" target="_blank" rel="noopener"><b>Discord</b><span>MrYummi Mods server</span></a></li>
+    <li><a href="https://www.nexusmods.com/profile/MrYummi/mods" target="_blank" rel="noopener"><b>Nexus Mods</b><span>all my mods</span></a></li>
+  </ul>
+  <p class="fine">&copy; 2026 MrYummi</p>
+</footer>
+
+</body>
+</html>
