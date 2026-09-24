@@ -6,7 +6,7 @@
 <meta name="description" content="MrYummi builds game mods, FiveM scripts and Discord bots. Real work, real screenshots, and how to hire me.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MrYummi — mods, FiveM scripts, Discord bots">
-<meta property="og:description" content="Four mods live on Nexus, a Discord bot that builds whole servers, a FiveM admin menu. Hire me on Fiverr.">
+<meta property="og:description" content="Four mods live on Nexus, a Discord bot that builds whole servers, a FiveM admin menu. Order on Fiverr or message me on Discord.">
 <meta property="og:image" content="https://mryummiz.github.io/work/img/og.jpg">
 <meta property="og:url" content="https://mryummiz.github.io/work/">
 <meta name="twitter:card" content="summary_large_image">
@@ -355,6 +355,29 @@
   .order ul { margin: 0; padding-left: 1.15em; display: grid; gap: 6px; }
   .order li::marker { color: var(--accent-ink); }
   .order .btn { justify-self: start; margin-top: 6px; }
+  .direct {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 22px 40px;
+    margin-top: 28px;
+    padding: 28px;
+    background: var(--sheet);
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+  }
+  .direct-text { display: grid; gap: 10px; }
+  .direct h3 { font-weight: 800; font-size: 1.9rem; line-height: 1; }
+  .direct-text p:last-child { margin: 0; max-width: 54ch; }
+  .direct-side { display: grid; gap: 12px; justify-items: start; }
+  .pay { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .pay li {
+    font: 500 0.85rem/1 var(--mono);
+    padding: 0.5em 0.75em;
+    background: var(--paper);
+    border: 1px solid var(--ink-2);
+    border-radius: 4px;
+  }
   .safe {
     margin: 22px 0 0;
     font: 400 1.15rem/1.2 var(--marker);
@@ -413,6 +436,7 @@
     .project { grid-template-columns: minmax(0, 1fr); gap: 26px; padding-block: 36px; }
     .project:nth-of-type(even) .print { order: 0; }
     .orders { grid-template-columns: minmax(0, 1fr); }
+    .direct { grid-template-columns: minmax(0, 1fr); }
     .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
@@ -421,6 +445,7 @@
     .steps { grid-template-columns: minmax(0, 1fr); }
     .note { font-size: 1.1rem; }
     .order { padding: 22px 20px 24px; }
+    .direct { padding: 22px 20px 24px; }
     .order header { flex-direction: column; align-items: flex-start; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -562,7 +587,7 @@
   <section class="section wrap" id="hire">
     <div class="section-head">
       <h2><span>Want one of your own?</span></h2>
-      <p>I take work through Fiverr. Pick whichever fits, or message me there first if you're not sure.</p>
+      <p>Order through Fiverr, or skip it and message me on Discord. Either way, you're talking to the person who builds it.</p>
     </div>
 
     <div class="orders">
@@ -599,7 +624,25 @@
       </article>
     </div>
 
-    <p class="safe">You pay through Fiverr, and they hold the money until the order's done.</p>
+    <article class="direct">
+      <div class="direct-text">
+        <p class="label">Order direct</p>
+        <h3>Message me on Discord</h3>
+        <p>Any job, any size. Join my server and message me with what you need. We agree on the price first, then I send you the payment details.</p>
+      </div>
+      <div class="direct-side">
+        <p class="label">Ways to pay</p>
+        <ul class="pay">
+          <li>Cash App</li>
+          <li>PayPal</li>
+          <li>Chime</li>
+          <li>Fiverr</li>
+        </ul>
+        <a class="btn primary" href="https://discord.gg/pp6XJp5Bug" target="_blank" rel="noopener">Message me on Discord &#8599;</a>
+      </div>
+    </article>
+
+    <p class="safe">Paying on Fiverr? They hold the money until the order's done.</p>
   </section>
 
   <section class="section wrap" id="how">
@@ -607,7 +650,7 @@
       <h2><span>How a job goes</span></h2>
     </div>
     <ol class="steps">
-      <li><b>You message me</b><span>Say what you want on Fiverr. Screenshots or a video help a lot.</span></li>
+      <li><b>You message me</b><span>On Fiverr or Discord, say what you want. Screenshots or a video help a lot.</span></li>
       <li><b>I tell you straight</b><span>What you'll get, how long it takes and what it costs, before you pay.</span></li>
       <li><b>I build it and test it</b><span>I use it myself before you ever see it.</span></li>
       <li><b>You get it working</b><span>With setup steps. Changes are included.</span></li>
@@ -620,7 +663,7 @@
   <ul class="links">
     <li><a href="https://www.youtube.com/@MrYummiMods" target="_blank" rel="noopener"><b>YouTube</b><span>@MrYummiMods</span></a></li>
     <li><a href="https://www.tiktok.com/@mr.yummiz" target="_blank" rel="noopener"><b>TikTok</b><span>@mr.yummiz</span></a></li>
-    <li><a href="https://discord.gg/pp6XJp5Bug" target="_blank" rel="noopener"><b>Discord</b><span>MrYummi Mods server</span></a></li>
+    <li><a href="https://discord.gg/pp6XJp5Bug" target="_blank" rel="noopener"><b>Discord</b><span>message me for orders</span></a></li>
     <li><a href="https://www.nexusmods.com/profile/MrYummi/mods" target="_blank" rel="noopener"><b>Nexus Mods</b><span>all my mods</span></a></li>
   </ul>
   <p class="fine">&copy; 2026 MrYummi</p>
